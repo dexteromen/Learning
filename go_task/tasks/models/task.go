@@ -1,7 +1,6 @@
 package models
 
 import (
-	// "fmt"
 	"log"
 	"time"
 )
@@ -74,6 +73,9 @@ func CreateTask(task Task) error {
 
 // UpdateTask updates an existing task in the database.
 func UpdateTask(task Task) error {
+	// Set the UpdatedAt field to the current time.
+	task.UpdatedAt = time.Now()
+
 	// Attempt to save the updated task in the database.
 	if err := DB.Save(&task).Error; err != nil {
 		// Log an error message if the update fails.

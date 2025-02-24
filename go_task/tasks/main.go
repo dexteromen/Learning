@@ -1,6 +1,7 @@
 package main
 
 import (
+	// "fmt"
 	"log"      // Package log implements simple logging
 	"net/http" // Package http provides HTTP client and server implementations
 	"time"     // Package time provides functionality for measuring and displaying time
@@ -48,6 +49,18 @@ func createTask(c *gin.Context) {
 		log.Println("Error binding JSON:", err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
+	}
+
+	// fmt.Println(task.DueDate)
+	// Format the DueDate to DD-MM-YYYY format
+	if task.DueDate != "" {
+		dueDate, err := time.Parse("2006-01-02", task.DueDate)
+		if err != nil {
+			log.Println("Error parsing DueDate:", err)
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid DueDate format: YYYY-MM-DD"})
+			return
+		}
+		task.DueDate = dueDate.Format("02-01-2006")
 	}
 
 	// Generate a new unique ID for the task
