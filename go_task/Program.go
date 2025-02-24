@@ -17,19 +17,10 @@ func Fibonacci(n int) int {
 
 func main() {
 
-	// ans := Fibonacci(5)
-	// fmt.Println(ans)
-
-	fmt.Println("Fibonacci Series:")
-	for i := 0; i <= 5; i++ {
-		fmt.Println(Fibonacci(i))
-	}
-	fmt.Println()
 	// var x,y int
 	// fmt.Println("Enter a number.")
 	// fmt.Scan(&x,&y)
 	// fmt.Println("Here is x,y:", x, y)
-
 	// if x%2==0 {
 	// 	fmt.Println("Number is Even")
 	// }else{
@@ -58,32 +49,17 @@ func main() {
 	// 	fmt.Println("The string is not a palindrome.")
 	// }
 
-	// var num int
-	// fmt.Println("Enter a number:")
-	// fmt.Scan(&num)
-
-	// isPrime := true
-	// if num <= 1 {
-	// 	isPrime = false
-	// } else {
-	// 	for i := 2; i*i <= num; i++ {
-	// 		if num%i == 0 {
-	// 			isPrime = false
-	// 			break
-	// 		}
-	// 	}
+	// ans := Fibonacci(5)
+	// fmt.Println(ans)
+	// fmt.Println("Fibonacci Series:")
+	// for i := 0; i <= 5; i++ {
+	// 	fmt.Println(Fibonacci(i))
 	// }
-
-	// if isPrime {
-	// 	fmt.Println(num, "is a prime number.")
-	// } else {
-	// 	fmt.Println(num, "is not a prime number.")
-	// }
+	// fmt.Println()
 
 	// var n int
 	// fmt.Println("Enter the number of terms:")
 	// fmt.Scan(&n)
-
 	// a, b := 0, 1
 	// fmt.Println("Fibonacci Series:")
 	// for i := 0; i <= n; i++ {
@@ -93,4 +69,25 @@ func main() {
 	// 	b = next
 	// }
 	// fmt.Println()
+
+	var n int
+	fmt.Println("Enter a number:")
+	fmt.Scan(&n)
+	isPrime := true
+	if n <= 1 {
+		isPrime = false
+	} else {
+		for i := 2; i*i <= n; i++ {
+			if n%i == 0 {
+				isPrime = false
+				break
+			}
+		}
+	}
+	if isPrime {
+		fmt.Println(n, "is a prime number.")
+	} else {
+		fmt.Println(n, "is not a prime number.")
+	}
+
 }
