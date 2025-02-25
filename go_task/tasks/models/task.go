@@ -9,7 +9,7 @@ import (
 type Task struct {
 	ID          string    `json:"id" gorm:"primaryKey"`                   // Unique identifier for the task
 	Title       string    `json:"title" binding:"required" gorm:"unique"` // Title of the task, required field with unique constraint
-	Description string    `json:"description"`                            // Description of the task
+	Description string    `json:"description" binding:"required"`         // Description of the task
 	DueDate     string    `json:"due_date" binding:"required"`            // Due date of the task, required field
 	Status      string    `json:"status"`                                 // Status of the task
 	CreatedAt   time.Time `json:"created_at" gorm:"autoCreateTime"`       // Timestamp when the task was created

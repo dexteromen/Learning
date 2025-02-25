@@ -21,13 +21,13 @@ func CreateTask(c *gin.Context) {
 	}
 
 	if task.DueDate != "" {
-		dueDate, err := time.Parse("02-01-2006", task.DueDate)
+		dueDate, err := time.Parse("2006-01-02", task.DueDate)
 		if err != nil {
 			log.Println("Error parsing DueDate:", err)
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid DueDate format: DD-MM-YYYY"})
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid DueDate format: 2006-01-02"})
 			return
 		}
-		task.DueDate = dueDate.Format("02-01-2006")
+		task.DueDate = dueDate.Format("2006-01-02")
 	}
 
 	task.ID = uuid.New().String()
